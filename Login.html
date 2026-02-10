@@ -1,50 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<style>
-    body{
-        display: flex;
-        
-        justify-content: center;
-        align-items: center;
-    }
-    .main{
-        background-color: rgb(194, 189, 170);
-        width: 500px;
-        height: 300px;
-        
-    }
-    h1{
-        background-color: brown;
-        color: white;
-        margin-top: 0;
-    }
+<meta charset="UTF-8">
+<title>Login</title>
 
-    button{
-        padding: 10px;
-    }
-    form{
-        margin-top: 50px;
-    }
+<style>
+/* ===== ROYAL DARK PURPLE BACKGROUND ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #2a003f,
+    #12001f,
+    #050008
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ===== ENCHANTMENT AURA ===== */
+.card-wrapper {
+  position: relative;
+}
+
+.card-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    #5e17eb,
+    #9b4dff,
+    #5e17eb
+  );
+  background-size: 300% 300%;
+  filter: blur(10px);
+  animation: enchantFlow 6s linear infinite;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+@keyframes enchantFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 420px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 18px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #3a0f6b, #5e17eb);
+  color: white;
+  padding: 26px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* ===== FORM ===== */
+form {
+  padding: 26px;
+}
+
+label {
+  font-size: 14px;
+  color: #2a003f;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #5e17eb;
+  box-shadow: 0 0 10px rgba(94, 23, 235, 0.45);
+}
+
+/* ===== BUTTON ===== */
+input[type="submit"] {
+  background: linear-gradient(135deg, #3a0f6b, #5e17eb);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 13px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(94, 23, 235, 0.7);
+}
+
+/* ===== FOOTER ===== */
+.back-btn {
+  display: block;
+  margin: 15px auto 25px;
+  width: 70%;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 22px;
+  color: #5e17eb;
+  border: 2px solid #5e17eb;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #5e17eb;
+  color: white;
+}
 </style>
+</head>
+
 <body>
-    <div class="main">
-        <h1 style="text-align: center;">Login</h1>
-        <form>
-            <label>Name : </label>
-            <input type="text" placeholder="Enter Your Name">
-            <br><br>
-            <label>Password : </label>
-            <input type="text" placeholder="**********">
-            <br><br>
-            <a href="index.html"><button >Login</button></a>
-        </form>
-        <br><br>
-        <button><a href="index.html">⬅ Back to Home</a></button>
-    </div>
+
+<div class="card-wrapper">
+  <div class="card">
+    <header>
+      <h1>Login</h1>
+      <p>Welcome back</p>
+    </header>
+
+    <form>
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter your password" required>
+
+      <input type="submit" value="Login">
+    </form>
+
+    <a class="back-btn" href="index.html">⬅ Back to Home</a>
+  </div>
+</div>
+
 </body>
 </html>

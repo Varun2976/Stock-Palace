@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            background-color: rgb(87, 4, 104);
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 3rem;
+            color: white;
+        }
+        #map {
+            border: 2px solid black;
+            height: 400px;
+            width: 50%;
+            margin-left: 20%;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CONTACT US</h1>
+    </header>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([19.0760, 72.8777], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.marker([19.072869138880755, 72.90071433047287]).addTo(map)
+            .bindPopup("Stock Palace")
+            .openPopup();
+    </script>
+    
+</body>
+</html>

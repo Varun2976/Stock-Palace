@@ -1,12 +1,23 @@
+function validate(event) {
+    
 
-function validate(){
-    let pass = document.getElementById(`Pass`).innerHTML;
-    let cpass = document.getElementById(`cPass`).innerHTML;
+    const pass = document.getElementById("Pass").value.trim();
+    const cpass = document.getElementById("cPass").value.trim();
 
-    if(pass == cpass){
-        window.alert(`Registration Completed.`);
+    if (pass === "" || cpass === "") {
+        alert("Password cannot be empty.");
+        return; 
     }
+
+    if (pass !== cpass) {
+        alert("Passwords do not match.");
+        event.preventDefault();
+        return; 
+    }
+
     else{
-        window.alert(`Registration not Successful.`)
+        alert("Registration Completed.");
+        window.location.href = "index.html";
     }
+    
 }

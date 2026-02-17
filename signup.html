@@ -5,11 +5,6 @@
 <title>Sign Up</title>
 
 <style>
-/* ===== RESET ===== */
-
-
-
-/* ===== ROYAL DARK PURPLE BACKGROUND ===== */
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -26,7 +21,6 @@ body {
   overflow: hidden;
 }
 
-/* ===== ENCHANTMENT AURA ===== */
 .card-wrapper {
   position: relative;
 }
@@ -55,7 +49,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* ===== CARD ===== */
 .card {
   width: 420px;
   background: rgba(255, 255, 255, 0.97);
@@ -65,7 +58,6 @@ body {
   overflow: hidden;
 }
 
-/* ===== HEADER ===== */
 header {
   background: linear-gradient(135deg, #3a0f6b, #5e17eb);
   color: white;
@@ -84,7 +76,6 @@ header p {
   opacity: 0.85;
 }
 
-/* ===== FORM ===== */
 form {
   padding: 26px;
 }
@@ -106,14 +97,12 @@ input {
   transition: all 0.3s ease;
 }
 
-/* Purple glow focus */
 input:focus {
   outline: none;
   border-color: #5e17eb;
   box-shadow: 0 0 10px rgba(94, 23, 235, 0.45);
 }
 
-/* ===== BUTTON ===== */
 input[type="submit"] {
   background: linear-gradient(135deg, #3a0f6b, #5e17eb);
   color: white;
@@ -130,7 +119,6 @@ input[type="submit"]:hover {
   box-shadow: 0 10px 25px rgba(94, 23, 235, 0.7);
 }
 
-/* ===== FOOTER ===== */
 .footer-text {
   text-align: center;
   font-size: 12px;
@@ -176,9 +164,9 @@ input[type="submit"]:hover {
 
       <label>Date of Birth</label>
       <input type="date" required>
-
-      <label >Password</label>
-      <input type="password" id="Pass" placeholder="Create password" required>
+      
+      <label id="Pass">Password</label>
+      <input type="password" id="cPass" placeholder="Create password" required>
 
       <label>Confirm Password</label>
       <input type="password" placeholder="Confirm password" id="cPass" required>

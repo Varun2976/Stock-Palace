@@ -48,74 +48,36 @@
     <h1>Dashboard</h1>
     <p>Basic stock trends and price visualization</p>
   </header>
-  <div class="container">
-    <div class="card">
-    <center><h2>NVIDIA Stock Price Table</h2></center>
-    <style> 
-      .card {
-      background: white;
-      border-radius: px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    </style>
-  <table border="3" bordercolor="#7dbaf7" cellpadding="8" style="background-color: #f7f8f9;" align="center">
-    <tr>
-      <th>Date</th>
-      <th>Open ($)</th>
-      <th>Close ($)</th>
-      <th>High ($)</th>
-      <th>Low ($)</th>
-      <th>Volume</th>
-    </tr>
+<div class="card">
+  <h2>Reliance Industries – Live Stock Chart</h2>
 
-    <tr>
-      <td>2026-01-01</td>
-      <td>480</td>
-      <td>495</td>
-      <td>500</td>
-      <td>475</td>
-      <td>32M</td>
-    </tr>
+  <div class="tradingview-widget-container">
+    <div id="tradingview_reliance"></div>
 
-    <tr>
-      <td>2026-01-02</td>
-      <td>495</td>
-      <td>510</td>
-      <td>515</td>
-      <td>490</td>
-      <td>40M</td>
-    </tr>
+    <script src="https://s3.tradingview.com/tv.js"></script>
 
-    <tr>
-      <td>2026-01-03</td>
-      <td>510</td>
-      <td>505</td>
-      <td>520</td>
-      <td>500</td>
-      <td>36M</td>
-    </tr>
+    <script>
+      new TradingView.widget({
+        "width": "100%",
+        "height": 500,
+        "symbol": "NSE:RELIANCE",
+        "interval": "D",
+        "timezone": "Asia/Mumbai",
+        "theme": "light",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f4f6f8",
+        "enable_publishing": false,
+        "hide_top_toolbar": false,
+        "withdateranges": true,
+        "allow_symbol_change": true,
+        "container_id": "tradingview_reliance"
+      });
+    </script>
 
-    <tr>
-      <td>2026-01-04</td>
-      <td>505</td>
-      <td>525</td>
-      <td>530</td>
-      <td>500</td>
-      <td>50M</td>
-    </tr>
-
-    <tr>
-      <td>2026-01-05</td>
-      <td>525</td>
-      <td>540</td>
-      <td>545</td>
-      <td>520</td>
-      <td>60M</td>
-    </tr>
-  </table>
+  </div>
 </div>
+
   <div class="container">
 
     <!-- Line Chart -->

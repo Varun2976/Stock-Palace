@@ -34,6 +34,11 @@
         <h1>CONTACT US</h1>
     </header>
     <div id="map"></div>
+    <div style="text-align:center; margin-top:20px; font-size:1.2rem;">
+        <b>Location Coordinates:</b><br>
+        Latitude: 19.072869138880755<br>
+        Longitude: 72.90071433047287
+    </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
@@ -43,8 +48,15 @@
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        L.marker([19.072869138880755, 72.90071433047287]).addTo(map)
-            .bindPopup("Stock Palace")
+        const latitude = 19.072869138880755;
+        const longitude = 72.90071433047287;
+
+        L.marker([latitude, longitude]).addTo(map)
+            .bindPopup(`
+                <b>Welcome to my current coordinates</b><br>
+                Latitude: ${latitude}<br>
+                Longitude: ${longitude}
+            `)
             .openPopup();
     </script>
     

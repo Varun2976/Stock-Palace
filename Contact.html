@@ -33,7 +33,9 @@
     <header>
         <h1>CONTACT US</h1>
     </header>
+
     <div id="map"></div>
+
     <div style="text-align:center; margin-top:20px; font-size:1.2rem;">
         <b>Location Coordinates:</b><br>
         Latitude: 19.072869138880755<br>
@@ -51,7 +53,44 @@
         const latitude = 19.072869138880755;
         const longitude = 72.90071433047287;
 
-        L.marker([latitude, longitude]).addTo(map)
+        // 🔹 Custom Arrow Icon (your SVG)
+        const arrowIcon = L.divIcon({
+    className: "",
+    html: `
+    <svg width="60" height="60" viewBox="0 0 200 100">
+        
+        <!-- Line 1 -->
+        <polyline points="20,80 60,60 100,70 140,40"
+            fill="none"
+            stroke="purple"
+            stroke-width="8"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <!-- Line 2 -->
+        <polyline points="20,70 60,50 100,60 140,30"
+            fill="none"
+            stroke="purple"
+            stroke-width="8"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <!-- Line 3 -->
+        <polyline points="20,60 60,40 100,50 140,20"
+            fill="none"
+            stroke="purple"
+            stroke-width="8"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+    </svg>
+    `,
+    iconSize: [60, 60],
+    iconAnchor: [30, 50]
+});
+
+        // 🔹 Marker using custom icon
+        L.marker([latitude, longitude], { icon: arrowIcon }).addTo(map)
             .bindPopup(`
                 <b>Welcome to my current coordinates</b><br>
                 Latitude: ${latitude}<br>
@@ -59,6 +98,5 @@
             `)
             .openPopup();
     </script>
-    
 </body>
 </html>

@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stock Market Trends</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -72,17 +70,8 @@
 
 <div class="container">
 
-  <!-- Line Chart -->
-  <div class="card">
-    <h2>Stock Price Trend (NVIDIA)</h2>
-    <canvas id="priceChart"></canvas>
-  </div>
 
-  <!-- Bar Chart -->
-  <div class="card">
-    <h2>Trading Volume</h2>
-    <canvas id="volumeChart"></canvas>
-  </div>
+  
 
   <!-- Profit Calculator -->
   <div class="card">
@@ -129,109 +118,113 @@
 </div>
 
 <script>
-  // Line Chart
-  const priceCtx = document.getElementById('priceChart');
-  new Chart(priceCtx, {
-    type: 'line',
-    data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-      datasets: [{
-        label: 'Stock Price ($)',
-        data: [480, 495, 510, 505, 540],
-        borderWidth: 2,
-        fill: false,
-        tension: 0.3
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: false
-        }
-      }
-    }
-  });
 
-  // Bar Chart
-  const volumeCtx = document.getElementById('volumeChart');
-  new Chart(volumeCtx, {
-    type: 'bar',
-    data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-      datasets: [{
-        label: 'Volume (in millions)',
-        data: [32, 40, 36, 50, 60]
-      }]
-    },
-    options: {
-      responsive: true
-    }
-  });
 
-  // Profit / Loss
-  function calculateProfit() {
-    const buy = parseFloat(document.getElementById("buyPrice").value);
-    const sell = parseFloat(document.getElementById("sellPrice").value);
+function StockCalculator(buy, sell) {
+  this.buy = buy;
+  this.sell = sell;
 
-    if (isNaN(buy) || isNaN(sell)) {
-      document.getElementById("result").innerText = "Enter valid numbers";
-      return;
-    }
+  this.getProfit = function () {
+    return this.sell - this.buy;
+  };
+}
 
-    const profit = sell - buy;
 
-    if (profit > 0) {
-      document.getElementById("result").innerText = "Profit: " + profit;
-    } else if (profit < 0) {
-      document.getElementById("result").innerText = "Loss: " + profit;
-    } else {
-      document.getElementById("result").innerText = "No Profit No Loss";
-    }
+
+function percentageCalculator() {
+  return function (oldPrice, newPrice) {
+    if (oldPrice === 0) return "Invalid";
+    return ((newPrice - oldPrice) / oldPrice) * 100;
+  };
+}
+
+const calcPercent = percentageCalculator();
+
+
+
+function calculateProfit() {
+  const buy = parseFloat(document.getElementById("buyPrice").value);
+  const sell = parseFloat(document.getElementById("sellPrice").value);
+
+  if (isNaN(buy) || isNaN(sell)) {
+    document.getElementById("result").innerText = "Enter valid numbers";
+    return;
   }
 
-  // Percentage Change
-  function calculatePercentage() {
-    const oldPrice = parseFloat(document.getElementById("oldPrice").value);
-    const newPrice = parseFloat(document.getElementById("newPrice").value);
+  const stock = new StockCalculator(buy, sell);
+  const profit = stock.getProfit();
 
-    if (isNaN(oldPrice) || isNaN(newPrice) || oldPrice === 0) {
-      document.getElementById("percentResult").innerText = "Enter valid values";
-      return;
-    }
+  if (profit > 0) {
+    document.getElementById("result").innerText = "Profit: " + profit;
+  } else if (profit < 0) {
+    document.getElementById("result").innerText = "Loss: " + profit;
+  } else {
+    document.getElementById("result").innerText = "No Profit No Loss";
+  }
+}
 
-    const percent = ((newPrice - oldPrice) / oldPrice) * 100;
 
-    document.getElementById("percentResult").innerText =
-      percent.toFixed(2) + "%";
+
+function calculatePercentage() {
+  const oldPrice = parseFloat(document.getElementById("oldPrice").value);
+  const newPrice = parseFloat(document.getElementById("newPrice").value);
+
+  if (isNaN(oldPrice) || isNaN(newPrice)) {
+    document.getElementById("percentResult").innerText = "Enter valid values";
+    return;
   }
 
-  // Average Price
-  function calculateAverage() {
-    const input = document.getElementById("prices").value;
+  const percent = calcPercent(oldPrice, newPrice);
 
-    if (!input) {
-      document.getElementById("avgResult").innerText = "Enter values";
-      return;
-    }
+  document.getElementById("percentResult").innerText =
+    percent.toFixed(2) + "%";
+}
 
-    const arr = input.split(",").map(Number);
 
+
+function averageCalculator() {
+  return function (arr) {
     const sum = arr.reduce((a, b) => a + b, 0);
-    const avg = sum / arr.length;
+    return sum / arr.length;
+  };
+}
 
-    document.getElementById("avgResult").innerText =
-      "Average: " + avg.toFixed(2);
+const calcAvg = averageCalculator();
+
+function calculateAverage() {
+  const input = document.getElementById("prices").value;
+
+  if (!input) {
+    document.getElementById("avgResult").innerText = "Enter values";
+    return;
   }
 
-  // Max Price
-  function showMax() {
-    const data = [480, 495, 510, 505, 540];
+  const arr = input.split(",").map(Number);
 
-    const max = Math.max(...data);
+  const avg = calcAvg(arr);
 
-    alert("Highest price this week: " + max);
-  }
+  document.getElementById("avgResult").innerText =
+    "Average: " + avg.toFixed(2);
+}
+
+
+
+function maxCalculator() {
+  return function (data) {
+    return Math.max(...data);
+  };
+}
+
+const calcMax = maxCalculator();
+
+function showMax() {
+  const data = [480, 495, 510, 505, 540];
+
+  const max = calcMax(data);
+
+  alert("Highest price this week: " + max);
+}
+
 </script>
 
 <hr>

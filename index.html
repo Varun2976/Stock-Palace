@@ -8,23 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
         rel="stylesheet"
     >
     <title>Stock Palace</title>
 </head>
 
-<body style="min-height:100vh; position:relative; margin:0;">
+<body>
 
 <header>
-    
-    <div class="ttl" style="text-align:center;font-size:130px;padding:20px;background-color:rgb(77,9,141);color:rgb(179,134,221);">
-        <svg width="120" height="70" viewBox="0 0 260 140" 
-             style="vertical-align:middle;margin-right:15px;">
+    <div class="ttl">
+        <svg width="120" height="70" viewBox="0 0 260 140" class="header-logo">
             <defs>
                 <linearGradient id="gradHeader" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#6a0dad;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#b386dd;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:#6a0dad"/>
+                    <stop offset="100%" style="stop-color:#b386dd"/>
                 </linearGradient>
             </defs>
 
@@ -34,8 +32,7 @@
                       fill="none"
                       stroke="white"
                       stroke-width="8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
+                      stroke-linecap="round"/>
 
             <polygon points="175,35 190,40 180,50" fill="white"/>
         </svg>
@@ -44,84 +41,44 @@
 </header>
 
 <div class="Nav">
-<ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="Contact.html">Contact</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="Login.html">Login</a></li>
-    <li><a href="signup.html">Sign Up</a></li>
-</ul>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="Login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+    </ul>
 </div>
 
-<div style="padding-bottom:200px;">
+<div class="main-content">
+    <div class="content-card">
 
-<h1 style="padding-left:20px; font-size:50px;">What is stock ??</h1>
+        <h1 class="heading">What is stock?</h1>
 
-<img src="Stoc.webp" style="padding-left:15px;width:500px;height:auto;border-radius:10px;">
+        <img src="Stoc.webp" class="stock-img">
 
-<p style="padding:20px; font-size:20px;">
-A stock represents fractional ownership in a company...
-</p>
+        <p class="para">
+            A stock represents fractional ownership in a company. When you buy a stock,
+            you own a portion of that company and may benefit from its growth.
+        </p>
 
-<h3 style="padding-left:20px;">Few Company Stocks :</h3>
-<ol>
-    <li>NVIDIA</li>
-    <li>Microsoft</li>
-    <li>Reliance</li>
-    <li>Intel</li>
-    <li>Apple</li>
-</ol>
+        <h3 class="subheading">Few Company Stocks:</h3>
+        <ol class="list">
+            <li>NVIDIA</li>
+            <li>Microsoft</li>
+            <li>Reliance</li>
+            <li>Intel</li>
+            <li>Apple</li>
+        </ol>
 
-<br><br>
+        <a class="but" href="Dashboard.html">
+            <button class="dashboard-btn">Check Dashboard</button>
+        </a>
 
-<a class="but" href="Dashboard.html">
-<button style="background-color:rgb(63,4,59);font-size:30px;border-radius:10px;margin-left:600px;padding:30px;color:white;cursor:pointer;">
-Check Dashboard
-</button>
-</a>
-
-<!-- SVG SECTION -->
-<hr>
-<h2 style="padding-left:20px;">Stock Palace Logo (SVG)</h2>
-
-<svg width="260" height="140" viewBox="0 0 260 140" style="margin-left:20px;">
-    <defs>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#6a0dad;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#b386dd;stop-opacity:1" />
-        </linearGradient>
-    </defs>
-
-    <!-- Background -->
-    <rect width="260" height="140" rx="20" fill="url(#grad1)"/>
-
-    <!-- Stock Arrow Icon -->
-    <polyline points="60,90 100,60 130,75 180,40"
-              fill="none"
-              stroke="white"
-              stroke-width="6"
-              stroke-linecap="round"
-              stroke-linejoin="round"/>
-
-    <polygon points="175,35 190,40 180,50" fill="white"/>
-
-    <!-- Text -->
-    <text x="60" y="120"
-          fill="white"
-          font-family="Inter, sans-serif"
-          font-size="28"
-          font-weight="bold">
-        STOCK PALACE
-    </text>
-</svg>
-
-
-
-
-
+    </div>
 </div>
 
-<footer style="background-color:rgb(82,78,78);position:absolute;bottom:0;width:100%;text-align:center;padding:80px;">
+<footer class="footer">
     <h1>Made With Love By Varun and Dev</h1>
 </footer>
 

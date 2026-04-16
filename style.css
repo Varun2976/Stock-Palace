@@ -1,11 +1,29 @@
+/* GLOBAL */
 body {
     margin: 0;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
+    background-color: #f5f6fa;
+    color: #222;
 }
 
+/* HEADER */
+.ttl {
+    text-align: center;
+    font-size: 70px;
+    padding: 20px;
+    background: linear-gradient(135deg, #4d098d, #b386dd);
+    color: white;
+}
+
+.header-logo {
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+/* NAVBAR */
 .Nav {
     width: 100%;
-    background-color: #222;
+    background: #222;
 }
 
 .Nav ul {
@@ -13,15 +31,102 @@ body {
     margin: 0;
     padding: 15px 30px;
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-around;
 }
 
 .Nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-}
-.Nav a:hover{
-    color: rgb(154, 89, 215);
+    transition: 0.3s;
 }
 
+.Nav a:hover {
+    color: #b386dd;
+}
+
+/* MAIN CONTENT CENTER */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* CARD */
+.content-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* TEXT */
+.heading {
+    font-size: 40px;
+}
+
+.subheading {
+    margin-top: 20px;
+}
+
+.para {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* IMAGE */
+.stock-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+}
+
+/* LIST */
+.list {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 200px;
+}
+
+/* BUTTON */
+.but {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.dashboard-btn {
+    background-color: #3f043b;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 15px 30px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.dashboard-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+.footer {
+    background-color: #444;
+    text-align: center;
+    padding: 40px;
+    color: white;
+}

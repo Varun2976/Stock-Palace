@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Stock Palace</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
@@ -16,7 +14,6 @@
             background: #f5f6fa;
         }
 
-        
         header {
             background: linear-gradient(135deg, #4d098d);
             text-align: center;
@@ -29,14 +26,12 @@
             font-size: 2.5rem;
         }
 
-       
         .container {
             display: flex;
             justify-content: center;
             padding: 50px 20px;
         }
 
-       
         .card {
             background: white;
             border-radius: 16px;
@@ -52,7 +47,6 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.25);
         }
 
-        
         .section {
             margin-bottom: 25px;
         }
@@ -62,41 +56,55 @@
             color: #4d098d;
         }
 
-        
-        #map {
-            height: 350px;
-            width: 100%;
-            border-radius: 12px;
-        }
-
-        
         .info {
             font-size: 1.1rem;
             color: #444;
             line-height: 1.6;
         }
 
-        
         .contact-box {
             background: #f0e6ff;
             padding: 15px;
             border-radius: 10px;
         }
 
-        
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
+        .form input,
+        .form textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+        }
+
+        .form button {
+            margin-top: 10px;
+            padding: 12px;
+            width: 100%;
+            border: none;
             background: #4d098d;
             color: white;
             border-radius: 8px;
-            text-decoration: none;
+            cursor: pointer;
             transition: 0.3s;
         }
 
-        .btn:hover {
+        .form button:hover {
             background: #6a0dad;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            background: #4d098d;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform ease-in 0.2s
+        }
+        button:hover{
+            transform: scale(1.2)
         }
     </style>
 </head>
@@ -104,77 +112,34 @@
 <body>
 
 <header>
-    <h1>Contact Us</h1>
+    <h1>About</h1>
 </header>
 
 <div class="container">
     <div class="card">
 
-       
-        
-
-       
         <div class="section">
-            <h2>📍 Our Location</h2>
-            <div id="map"></div>
+            <h2>About Stock Palace</h2>
+            <p class="info">
+                Here’s a larger, well-structured paragraph you can use:
+
+Stock Palace is a comprehensive and user-centric platform designed to simplify the complexities of the stock market and make financial knowledge more accessible to everyone. It provides users with the ability to explore various companies, understand their performance, and gain insights into market trends through an intuitive and easy-to-use interface. The platform aims to bridge the gap between beginners and experienced investors by presenting information in a clear, structured, and engaging manner. By combining educational content with practical tools, Stock Palace enables users to make informed financial decisions and develop a deeper understanding of how markets operate. Whether someone is just starting their journey in investing or looking to enhance their existing knowledge, Stock Palace serves as a reliable companion that promotes smarter investing, encourages financial awareness, and builds confidence in navigating the dynamic world of stocks and investments.
+            </p>
         </div>
 
-        <!-- COORDINATES -->
-        <div class="section info">
-            <b>Coordinates:</b><br>
-            Latitude: 19.072869<br>
-            Longitude: 72.900714
-        </div>
-
-        <!-- CONTACT DETAILS -->
         <div class="section contact-box">
             <h2>Get in Touch</h2>
             <p>Email: support@stockpalace.com</p>
             <p>Phone: +91 98765 43210</p>
             <p>Address: Mumbai, India</p>
-
-            <a href="index.html" class="btn">Go Back to Home</a>
         </div>
+        <a href="index.html">
+            <button class="home-btn">Homepage</button>
+        </a>
+        
 
     </div>
 </div>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-    const map = L.map('map').setView([19.0760, 72.8777], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    const latitude = 19.072869138880755;
-    const longitude = 72.90071433047287;
-
-    const arrowIcon = L.divIcon({
-        className: "",
-        html: `
-        <svg width="60" height="60" viewBox="0 0 200 100">
-            <polyline points="20,80 60,60 100,70 140,40"
-                fill="none" stroke="purple" stroke-width="8"/>
-            <polyline points="20,70 60,50 100,60 140,30"
-                fill="none" stroke="purple" stroke-width="8"/>
-            <polyline points="20,60 60,40 100,50 140,20"
-                fill="none" stroke="purple" stroke-width="8"/>
-        </svg>
-        `,
-        iconSize: [60, 60],
-        iconAnchor: [30, 50]
-    });
-
-    L.marker([latitude, longitude], { icon: arrowIcon }).addTo(map)
-        .bindPopup(`
-            <b>Stock Palace Location</b><br>
-            Latitude: ${latitude}<br>
-            Longitude: ${longitude}
-        `)
-        .openPopup();
-</script>
 
 </body>
 </html>
